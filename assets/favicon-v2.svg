@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!--
+    v2 mark. The snowcap is the change: v1 used a hard zigzag notch
+    (M42 24 L47 31 L42 33 L37 30 Z) which read as a sharp chevron and
+    fought the soft ridgeline. This is a drift — three rounded lobes on
+    a bezier, thicker at the peak and thinning as it runs downslope, so
+    it looks like settled snow rather than a graphic arrow.
+  -->
+  <defs>
+    <linearGradient id="ghSun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3CB80"/>
+      <stop offset="100%" stop-color="#DE9855"/>
+    </linearGradient>
+    <linearGradient id="ghRidge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B4623A"/>
+      <stop offset="100%" stop-color="#8A4623"/>
+    </linearGradient>
+    <clipPath id="ghClip"><circle cx="32" cy="32" r="29"/></clipPath>
+  </defs>
+
+  <circle cx="32" cy="32" r="29" fill="#FBF7F2"/>
+  <g clip-path="url(#ghClip)">
+    <circle cx="32" cy="27.5" r="12.5" fill="url(#ghSun)"/>
+    
+    <path d="M-4 51 L17 36.5 L27.5 46 L41 27 L55 47 L68 51 Z" fill="url(#ghRidge)"/>
+    <!-- rounded snow drift -->
+    <path d="M34.6 34.2
+             C36.9 30.3 39 28.2 41 27
+             C43 28.2 45.1 30.3 47.4 34.2
+             C45.4 32.4 43.7 31.8 42.3 32.6
+             C41.6 33 41 33 40.3 32.6
+             C38.7 31.7 36.7 32.4 34.6 34.2 Z"
+          fill="#FBF7F2" opacity=".95"/>
+    <rect x="0" y="51" width="64" height="13" fill="#423049"/>
+  </g>
+  <circle cx="32" cy="32" r="29" fill="none" stroke="#A85832" stroke-width="2.5"/>
+</svg>
