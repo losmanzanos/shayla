@@ -173,6 +173,14 @@ PAGE_CSS = '''
   .grid-3 > *, .cards > *{grid-column:auto}
 }
 
+/* Photo set inside a prose column. Capped and centred so it never towers over
+   the text on a phone; height:auto keeps the width/height attributes from
+   being read as a CSS presentational hint and stretching the image. */
+.prose figure{margin:2.25rem auto; max-width:38rem}
+.prose figure img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover;
+  border-radius:var(--r-lg); box-shadow:var(--shadow-md)}
+.prose figcaption{margin-top:.7rem; font-size:.78rem; color:var(--ink-soft); text-align:center}
+
 .card{background:var(--shell); border:1px solid var(--line); border-radius:var(--r); padding:1.75rem 1.5rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease}
 .card:hover{border-color:rgba(168,88,50,.32); transform:translateY(-2px); box-shadow:var(--shadow-sm)}
 .card h3{margin:0 0 .4rem; color:var(--plum); font-size:1.15rem}

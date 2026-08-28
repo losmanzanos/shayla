@@ -75,7 +75,7 @@ service("trauma-emdr.html", "EMDR Therapy", "Trauma &amp; EMDR Therapy",
    "Talk therapy has helped, but only to a point",
    "You&rsquo;re carrying a single event, or years of accumulated stress",
    "You want structure rather than open-ended conversation"],
-  STD, 'Shayla Martinez-O&rsquo;Brien, LPC, LAC. <a href="shayla.html">Read her profile</a>.')
+  STD, 'Shayla Martinez-O&rsquo;Brien, LPC. <a href="shayla.html">Read her profile</a>.')
 
 service("anxiety-depression.html", "Cognitive Behavioral Therapy", "Anxiety &amp; Depression",
   "Therapy for anxiety and depression in Colorado. Solution-oriented, CBT-informed counseling with licensed clinicians, in person or by telehealth.",
@@ -95,13 +95,13 @@ service("substance-use.html", "Addiction Counseling", "Substance Use &amp; Recov
   "Licensed addiction counseling for people living with substance use disorders, or anyone feeling stuck and disconnected from themselves.",
   ["You don&rsquo;t need a label or a rock-bottom story to start here. Plenty of people arrive simply knowing something has taken up more room than they want it to.",
    "The work is strengths-based. We&rsquo;ll identify what&rsquo;s already working, name honestly what isn&rsquo;t, and set goals that match your own vision of your best self rather than someone else&rsquo;s.",
-   "Both clinicians here hold Colorado addiction counseling licences, which is less common than it sounds. It means substance use is treated as core clinical work, not as a referral."],
+   "Chrissie holds a Colorado addiction counseling licence, so substance use is treated here as core clinical work rather than something we refer out. Shayla brings the trauma side, which so often sits underneath it."],
   ["Substance use has become larger than you intended",
    "You feel stuck, or disconnected from yourself and others",
    "You&rsquo;ve tried to change on your own and it hasn&rsquo;t held",
    "You want support that isn&rsquo;t shaming or scripted",
    "You&rsquo;re navigating recovery alongside trauma or anxiety"],
-  STD, 'Chrissie Flynn-Weirich, LAC, or Shayla Martinez-O&rsquo;Brien, LPC, LAC.')
+  STD, 'Chrissie Flynn-Weirich, LAC, or Shayla Martinez-O&rsquo;Brien, LPC.')
 
 service("couples-therapy.html", "Couples Therapy", "Couples &amp; Relationships",
   "Couples and relationship counseling in Colorado. Support for communication, family and work stress, and major life transitions.",
@@ -162,7 +162,13 @@ emit("mamas-golden-hour.html",
     </ul>
 
     <h2>Who facilitates</h2>
-    <p>The group is co-facilitated by <a href="shayla.html">Shayla Martinez-O&rsquo;Brien</a>, LPC, LAC, and <a href="ashley.html">Ashley LeRossignol</a>, LPC.</p>
+    <p>The group is co-facilitated by <a href="shayla.html">Shayla Martinez-O&rsquo;Brien</a>, LPC, and <a href="ashley.html">Ashley LeRossignol</a>, LPC.</p>
+
+    <figure>
+      <img src="assets/img/mamas-group.jpg" width="1600" height="1066" loading="lazy"
+           alt="Ashley LeRossignol and Shayla Martinez-O&rsquo;Brien, co-facilitators of Mama&rsquo;s Golden Hour, standing together outdoors beneath a cottonwood.">
+      <figcaption>Ashley LeRossignol and Shayla Martinez-O&rsquo;Brien, co-facilitators.</figcaption>
+    </figure>
 
     <h2>Joining</h2>
     <p>Every member has a short consultation first, so we can make sure the group is a good fit before you commit. Call or text <a href="tel:+13037369822">(303)&nbsp;736-9822</a>, or <a href="contact.html">send a message</a>.</p>

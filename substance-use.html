@@ -68,6 +68,14 @@
   .grid-3 > *, .cards > *{grid-column:auto}
 }
 
+/* Photo set inside a prose column. Capped and centred so it never towers over
+   the text on a phone; height:auto keeps the width/height attributes from
+   being read as a CSS presentational hint and stretching the image. */
+.prose figure{margin:2.25rem auto; max-width:38rem}
+.prose figure img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover;
+  border-radius:var(--r-lg); box-shadow:var(--shadow-md)}
+.prose figcaption{margin-top:.7rem; font-size:.78rem; color:var(--ink-soft); text-align:center}
+
 .card{background:var(--shell); border:1px solid var(--line); border-radius:var(--r); padding:1.75rem 1.5rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease}
 .card:hover{border-color:rgba(168,88,50,.32); transform:translateY(-2px); box-shadow:var(--shadow-sm)}
 .card h3{margin:0 0 .4rem; color:var(--plum); font-size:1.15rem}
@@ -142,7 +150,7 @@
 </section>
 <section class="section">
   <div class="wrap prose">
-    <p>You don&rsquo;t need a label or a rock-bottom story to start here. Plenty of people arrive simply knowing something has taken up more room than they want it to.</p><p>The work is strengths-based. We&rsquo;ll identify what&rsquo;s already working, name honestly what isn&rsquo;t, and set goals that match your own vision of your best self rather than someone else&rsquo;s.</p><p>Both clinicians here hold Colorado addiction counseling licences, which is less common than it sounds. It means substance use is treated as core clinical work, not as a referral.</p>
+    <p>You don&rsquo;t need a label or a rock-bottom story to start here. Plenty of people arrive simply knowing something has taken up more room than they want it to.</p><p>The work is strengths-based. We&rsquo;ll identify what&rsquo;s already working, name honestly what isn&rsquo;t, and set goals that match your own vision of your best self rather than someone else&rsquo;s.</p><p>Chrissie holds a Colorado addiction counseling licence, so substance use is treated here as core clinical work rather than something we refer out. Shayla brings the trauma side, which so often sits underneath it.</p>
 
     <h2>This may be a good fit if</h2>
     <ul><li>Substance use has become larger than you intended</li><li>You feel stuck, or disconnected from yourself and others</li><li>You&rsquo;ve tried to change on your own and it hasn&rsquo;t held</li><li>You want support that isn&rsquo;t shaming or scripted</li><li>You&rsquo;re navigating recovery alongside trauma or anxiety</li></ul>
@@ -156,7 +164,7 @@
     </table>
 
     <div class="callout">
-      <p><strong>Who you&rsquo;d see:</strong> Chrissie Flynn-Weirich, LAC, or Shayla Martinez-O&rsquo;Brien, LPC, LAC.</p>
+      <p><strong>Who you&rsquo;d see:</strong> Chrissie Flynn-Weirich, LAC, or Shayla Martinez-O&rsquo;Brien, LPC.</p>
     </div>
   </div>
 </section><section class="section" style="background:var(--sand); text-align:center">

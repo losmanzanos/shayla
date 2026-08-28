@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Team | Golden Hour Wellness Colorado</title>
-<meta name="description" content="Meet the clinicians at Golden Hour Wellness Colorado: Shayla Martinez-O'Brien LPC LAC, Chrissie Flynn-Weirich LAC, and Ashley LeRossignol LPC.">
+<meta name="description" content="Meet the clinicians at Golden Hour Wellness Colorado: Shayla Martinez-O'Brien LPC, Chrissie Flynn-Weirich LAC, and Ashley LeRossignol LPC.">
 <link rel="canonical" href="https://www.goldenhourwellnesscolorado.com/team.html">
 <link rel="icon" href="assets/favicon-v2.svg" type="image/svg+xml">
 <meta name="robots" content="noindex, nofollow"><!-- PREVIEW ONLY — remove at launch -->
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Golden Hour Wellness Colorado">
 <meta property="og:title" content="Our Team | Golden Hour Wellness Colorado">
-<meta property="og:description" content="Meet the clinicians at Golden Hour Wellness Colorado: Shayla Martinez-O'Brien LPC LAC, Chrissie Flynn-Weirich LAC, and Ashley LeRossignol LPC.">
+<meta property="og:description" content="Meet the clinicians at Golden Hour Wellness Colorado: Shayla Martinez-O'Brien LPC, Chrissie Flynn-Weirich LAC, and Ashley LeRossignol LPC.">
 <meta property="og:url" content="https://www.goldenhourwellnesscolorado.com/team.html">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -67,6 +67,14 @@
 @media (max-width:620px){
   .grid-3 > *, .cards > *{grid-column:auto}
 }
+
+/* Photo set inside a prose column. Capped and centred so it never towers over
+   the text on a phone; height:auto keeps the width/height attributes from
+   being read as a CSS presentational hint and stretching the image. */
+.prose figure{margin:2.25rem auto; max-width:38rem}
+.prose figure img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover;
+  border-radius:var(--r-lg); box-shadow:var(--shadow-md)}
+.prose figcaption{margin-top:.7rem; font-size:.78rem; color:var(--ink-soft); text-align:center}
 
 .card{background:var(--shell); border:1px solid var(--line); border-radius:var(--r); padding:1.75rem 1.5rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease}
 .card:hover{border-color:rgba(168,88,50,.32); transform:translateY(-2px); box-shadow:var(--shadow-sm)}
@@ -144,7 +152,7 @@
     <div class="cards">
       <a class="card" href="shayla.html">
         <h3>Shayla Martinez-O&rsquo;Brien</h3>
-        <p><strong>LPC, LAC &middot; Founder</strong><br>Trauma, EMDR and addiction. Accepting individual clients.</p>
+        <p><strong>LPC &middot; Founder</strong><br>Trauma, EMDR and substance use. Accepting individual clients.</p>
         <span class="more">Read profile &rarr;</span>
       </a>
       <a class="card" href="chrissie.html">

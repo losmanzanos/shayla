@@ -12,12 +12,12 @@ def emit(slug, **kw):
 # ─────────────────────────────────────────────── ABOUT
 emit("about.html",
   title="About | Golden Hour Wellness Colorado",
-  desc="A therapist-owned counseling practice in Colorado specializing in trauma, EMDR and addiction counseling. Founded by Shayla Martinez-O'Brien, LPC, LAC.",
+  desc="A therapist-owned counseling practice in Colorado specializing in trauma, EMDR and addiction counseling. Founded by Shayla Martinez-O'Brien, LPC.",
   body=head_block("About", "A practice built around the person in the room.",
        "Golden Hour Wellness Colorado, LLC is a small, therapist-owned counseling practice serving clients across the state.") + '''
 <section class="section">
   <div class="wrap prose">
-    <p>The practice was founded by <a href="shayla.html">Shayla Martinez-O&rsquo;Brien</a>, a Licensed Professional Counselor and Licensed Addiction Counselor with 11 years of clinical practice. What began as one clinician is now a small, hand-picked team.</p>
+    <p>The practice was founded by <a href="shayla.html">Shayla Martinez-O&rsquo;Brien</a>, a Licensed Professional Counselor with 11 years of clinical practice. What began as one clinician is now a small, hand-picked team.</p>
 
     <p>We believe true healing comes from an increased ability to tolerate challenging emotion, paired with a clearer understanding of your own value system. That work is slow, human, and worth it, and you don&rsquo;t have to do it alone.</p>
 
@@ -41,14 +41,14 @@ emit("about.html",
 # ─────────────────────────────────────────────── TEAM
 emit("team.html",
   title="Our Team | Golden Hour Wellness Colorado",
-  desc="Meet the clinicians at Golden Hour Wellness Colorado: Shayla Martinez-O'Brien LPC LAC, Chrissie Flynn-Weirich LAC, and Ashley LeRossignol LPC.",
+  desc="Meet the clinicians at Golden Hour Wellness Colorado: Shayla Martinez-O'Brien LPC, Chrissie Flynn-Weirich LAC, and Ashley LeRossignol LPC.",
   body=head_block("Our team", "Three clinicians. Roughly 34 years of practice between them.") + '''
 <section class="section">
   <div class="wrap">
     <div class="cards">
       <a class="card" href="shayla.html">
         <h3>Shayla Martinez-O&rsquo;Brien</h3>
-        <p><strong>LPC, LAC &middot; Founder</strong><br>Trauma, EMDR and addiction. Accepting individual clients.</p>
+        <p><strong>LPC &middot; Founder</strong><br>Trauma, EMDR and substance use. Accepting individual clients.</p>
         <span class="more">Read profile &rarr;</span>
       </a>
       <a class="card" href="chrissie.html">
@@ -96,16 +96,16 @@ def profile(slug, name, cred, img, w, h, tags, lead, paras, bookable, extra_meta
          desc=lead[:180], body=body, active="team.html",
          extra_head=f'<script type="application/ld+json">{json.dumps(person)}</script>')
 
-profile("shayla.html", "Shayla Martinez-O&rsquo;Brien", "LPC, LAC &middot; Founder",
+profile("shayla.html", "Shayla Martinez-O&rsquo;Brien", "LPC &middot; Founder",
   "shayla.jpg", 1086, 1357, [],
-  "A Licensed Professional Counselor and Licensed Addiction Counselor in Colorado, specializing in trauma therapy, with 11 years of practice.",
+  "A Licensed Professional Counselor in Colorado, specializing in trauma therapy, with 11 years of practice.",
   ["I use Eye Movement Desensitization and Reprocessing (EMDR) among other trauma-focused approaches to help clients better tolerate emotion related to past and present traumas and stressors.",
    "I believe true healing comes from an increased ability to tolerate challenging emotion along with a better understanding of one&rsquo;s own value system. I would love the opportunity to walk alongside you in your journey to improved self-awareness, strengthened positive neural pathways, and deeper connection with who you are.",
    "I&rsquo;m a Colorado native and do my very best to live up to the stereotype. I&rsquo;m married, a mother of two, with two lab mixes at home.",
    "I founded Golden Hour Wellness Colorado and work as both clinician and business manager. I also co-facilitate <a href=\"mamas-golden-hour.html\">Mama&rsquo;s Golden Hour</a>."],
   True,
-  [("Licence", "LPC, LAC (Colorado)"), ("Experience", "11 years"),
-   ("Focus", "Trauma, EMDR, addiction"), ("Sessions", "In person &amp; telehealth")])
+  [("Licence", "LPC (Colorado)"), ("Experience", "11 years"),
+   ("Focus", "Trauma, EMDR, substance use"), ("Sessions", "In person &amp; telehealth")])
 
 profile("chrissie.html", "Chrissie Flynn-Weirich", "LAC &middot; Wellness Facilitator",
   "chrissie.jpg", 1086, 1357, [],

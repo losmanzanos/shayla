@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About | Golden Hour Wellness Colorado</title>
-<meta name="description" content="A therapist-owned counseling practice in Colorado specializing in trauma, EMDR and addiction counseling. Founded by Shayla Martinez-O'Brien, LPC, LAC.">
+<meta name="description" content="A therapist-owned counseling practice in Colorado specializing in trauma, EMDR and addiction counseling. Founded by Shayla Martinez-O'Brien, LPC.">
 <link rel="canonical" href="https://www.goldenhourwellnesscolorado.com/about.html">
 <link rel="icon" href="assets/favicon-v2.svg" type="image/svg+xml">
 <meta name="robots" content="noindex, nofollow"><!-- PREVIEW ONLY — remove at launch -->
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Golden Hour Wellness Colorado">
 <meta property="og:title" content="About | Golden Hour Wellness Colorado">
-<meta property="og:description" content="A therapist-owned counseling practice in Colorado specializing in trauma, EMDR and addiction counseling. Founded by Shayla Martinez-O'Brien, LPC, LAC.">
+<meta property="og:description" content="A therapist-owned counseling practice in Colorado specializing in trauma, EMDR and addiction counseling. Founded by Shayla Martinez-O'Brien, LPC.">
 <meta property="og:url" content="https://www.goldenhourwellnesscolorado.com/about.html">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -67,6 +67,14 @@
 @media (max-width:620px){
   .grid-3 > *, .cards > *{grid-column:auto}
 }
+
+/* Photo set inside a prose column. Capped and centred so it never towers over
+   the text on a phone; height:auto keeps the width/height attributes from
+   being read as a CSS presentational hint and stretching the image. */
+.prose figure{margin:2.25rem auto; max-width:38rem}
+.prose figure img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover;
+  border-radius:var(--r-lg); box-shadow:var(--shadow-md)}
+.prose figcaption{margin-top:.7rem; font-size:.78rem; color:var(--ink-soft); text-align:center}
 
 .card{background:var(--shell); border:1px solid var(--line); border-radius:var(--r); padding:1.75rem 1.5rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease}
 .card:hover{border-color:rgba(168,88,50,.32); transform:translateY(-2px); box-shadow:var(--shadow-sm)}
@@ -142,7 +150,7 @@
 </section>
 <section class="section">
   <div class="wrap prose">
-    <p>The practice was founded by <a href="shayla.html">Shayla Martinez-O&rsquo;Brien</a>, a Licensed Professional Counselor and Licensed Addiction Counselor with 11 years of clinical practice. What began as one clinician is now a small, hand-picked team.</p>
+    <p>The practice was founded by <a href="shayla.html">Shayla Martinez-O&rsquo;Brien</a>, a Licensed Professional Counselor with 11 years of clinical practice. What began as one clinician is now a small, hand-picked team.</p>
 
     <p>We believe true healing comes from an increased ability to tolerate challenging emotion, paired with a clearer understanding of your own value system. That work is slow, human, and worth it, and you don&rsquo;t have to do it alone.</p>
 
