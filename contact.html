@@ -7,7 +7,6 @@
 <meta name="description" content="Get in touch with Golden Hour Wellness Colorado. Call (303) 736-9822, email, or send a secure-minded message to request a free consultation.">
 <link rel="canonical" href="https://www.goldenhourwellnesscolorado.com/contact.html">
 <link rel="icon" href="assets/favicon-v2.svg" type="image/svg+xml">
-<meta name="robots" content="noindex, nofollow"><!-- PREVIEW ONLY -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,7 +110,7 @@
         <g clip-path="url(#c1)">
           <circle cx="32" cy="27.5" r="12.5" fill="url(#s1)"/>
           <path d="M-4 51 L17 36.5 L27.5 46 L41 27 L55 47 L68 51 Z" fill="url(#r1)"/>
-          <path d="M34.6 34.2 C36.9 30.3 39 28.2 41 27 C43 28.2 45.1 30.3 47.4 34.2 C45.4 32.4 43.7 31.8 42.3 32.6 C41.6 33 41 33 40.3 32.6 C38.7 31.7 36.7 32.4 34.6 34.2 Z" fill="#FBF7F2" opacity=".95"/>
+          <path d="M34.8 35.73 L41 27 L47.6 36.43 C45.6 34.5 43.9 33.9 42.5 34.7 C41.8 35.1 41.2 35.1 40.5 34.7 C38.9 33.8 36.9 34.5 34.8 35.73 Z" fill="#FBF7F2" opacity=".95"/>
           <rect x="0" y="51" width="64" height="13" fill="#423049"/>
         </g>
         <circle cx="32" cy="32" r="29" fill="none" stroke="#A85832" stroke-width="2.5"/>
@@ -378,6 +377,11 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // Replace with the public key from EmailJS \u2192 Account \u2192 General.
+  if (typeof emailjs !== "undefined") { try { emailjs.init({ publicKey: "EMAILJS_PUBLIC_KEY" }); } catch (e) {} }
+</script>
 <script src="assets/site.js"></script>
 <script>
 (function () {
@@ -424,27 +428,73 @@
     btn.textContent = 'Sending…';
 
     // ------------------------------------------------------------------
-    // TODO — wire to EmailJS before launch:
+    // EmailJS. The public key is meant to be visible in page source — what
+    // stops it becoming a spam relay is the domain allowlist and CAPTCHA set
+    // in the EmailJS dashboard, not secrecy. Fill in the three IDs below.
     //
-    //   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
-    //   emailjs.init({ publicKey: 'XXXX' });
-    //   emailjs.sendForm('service_id', 'template_id', form).then(ok, fail);
-    //
-    // In the EmailJS dashboard, restrict the public key to the site's
-    // domain and enable their reCAPTCHA — the key is visible in this page
-    // by design, so the allowlist is what stops it becoming a spam relay.
-    //
-    // Route delivery to a BAA-covered inbox (Google Workspace with a signed
-    // BAA), not consumer Gmail. Even with the safeguards above, people
-    // occasionally volunteer health details anyway.
+    // HIPAA: this routes to Gmail, which is not covered by a BAA. The form
+    // is designed to collect contact details only, and the notice above the
+    // fields asks people to keep health detail out of it. That is mitigation,
+    // not compliance — a BAA-covered inbox is the real fix.
     // ------------------------------------------------------------------
-    setTimeout(function () {
-      say('ok', 'Thanks, your message is on its way. We’ll reply within one business day.');
-      form.reset();
-      counter.textContent = '0 / 300';
+    var CFG = {
+      publicKey:  'EMAILJS_PUBLIC_KEY',
+      serviceId:  'EMAILJS_SERVICE_ID',
+      templateId: 'EMAILJS_TEMPLATE_ID',          // the notification template
+      autoReplyId: 'EMAILJS_AUTOREPLY_TEMPLATE_ID' // optional; '' to skip
+    };
+
+    function done(ok) {
       btn.textContent = 'Send message';
-      btn.disabled = true;
-    }, 700);
+      if (ok) {
+        say('ok', 'Thanks, your message is on its way. We\u2019ll reply within one business day.');
+        form.reset();
+        counter.textContent = '0 / 300';
+        btn.disabled = true;
+      } else {
+        btn.disabled = false;
+        say('err', 'Something went wrong sending that. Please call or text (303) 736-9822, ' +
+                   'or email goldenhourwellco@gmail.com directly.');
+      }
+    }
+
+    if (typeof emailjs === 'undefined' || CFG.publicKey.indexOf('EMAILJS_') === 0) {
+      // Not configured yet — fail loudly in the console rather than showing
+      // the visitor a success message for an email that never sent.
+      console.error('EmailJS is not configured. Message was NOT sent.');
+      done(false);
+      return;
+    }
+
+    var params = {
+      from_name:          [form.first.value, form.last.value].join(' ').trim(),
+      from_email:         form.email.value,
+      from_phone:         form.phone.value || 'Not given',
+      contact_preference: form.interest ? form.interest.value : '',
+      enquiry_type:       form.interest ? form.interest.value : 'General enquiry',
+      insurance:          form.insurance.value || 'Not given',
+      message:            form.message.value,
+      to_email:           'goldenhourwellco@gmail.com',
+      sent_at:            new Date().toLocaleString('en-US', {
+                            timeZone: 'America/Denver',
+                            dateStyle: 'medium', timeStyle: 'short'
+                          }) + ' MT'
+    };
+
+    emailjs.send(CFG.serviceId, CFG.templateId, params)
+      .then(function () {
+        done(true);
+        // Auto-reply is best-effort. If it fails the enquiry still arrived,
+        // so we never surface that error to the visitor.
+        if (CFG.autoReplyId && CFG.autoReplyId.indexOf('EMAILJS_') !== 0) {
+          emailjs.send(CFG.serviceId, CFG.autoReplyId, params)
+            .catch(function (e) { console.warn('Auto-reply failed:', e); });
+        }
+      })
+      .catch(function (err) {
+        console.error('EmailJS send failed:', err);
+        done(false);
+      });
   });
 })();
 </script>

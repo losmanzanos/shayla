@@ -10,28 +10,11 @@ def emit(slug, **kw):
 UPDATED = "22 August 2026"
 
 # ─────────────────────────────────────────────── FAQ
-QA = [
- ("Do you take insurance?",
-  "<p>Yes. We&rsquo;re in-network with <strong>Aetna</strong>, <strong>United Healthcare</strong> and <strong>Cigna</strong> for individual therapy. If your plan isn&rsquo;t one of those, reach out anyway and we can talk through out-of-network reimbursement and self-pay rates.</p><p>Insurance is <strong>not</strong> accepted for Mama&rsquo;s Golden Hour. Group sessions are self-pay.</p>"),
- ("How much does therapy cost?",
-  "<p>With in-network insurance, you pay whatever your plan sets as your copay or coinsurance. We&rsquo;ll help you check that before your first session.</p><p>For self-pay and out-of-network clients, you&rsquo;re entitled to a written <a href=\"good-faith-estimate.html\">Good Faith Estimate</a> of expected charges before you begin. Just ask and we&rsquo;ll send one.</p><p>Mama&rsquo;s Golden Hour is $25 per session, or $150 for the full six weeks.</p>"),
- ("What happens in a free consultation?",
-  "<p>It&rsquo;s a short, no-pressure phone call, usually about 15 minutes. You say as much or as little as you want about what brings you in. We talk about whether this practice is a good fit and which clinician makes sense.</p><p>If we&rsquo;re not the right fit, we&rsquo;ll say so and point you somewhere better. That&rsquo;s a normal outcome, not a failure.</p>"),
- ("Do you offer telehealth?",
-  "<p>Yes, throughout Colorado. Telehealth sessions run the same length and format as in-person ones. Many clients mix the two depending on the week.</p><p>Mama&rsquo;s Golden Hour is virtual only, via Zoom.</p>"),
- ("What is EMDR, in plain terms?",
-  "<p>Eye Movement Desensitization and Reprocessing is a structured therapy for trauma. Rather than asking you to talk through a memory repeatedly, it uses guided attention to help your brain reprocess it, so it stops carrying the same charge.</p><p>It doesn&rsquo;t erase what happened. It changes how much the memory dictates your present. You&rsquo;re never pushed to revisit something before you&rsquo;re ready.</p>"),
- ("Can I schedule with Ashley?",
-  "<p>Not for individual therapy. Ashley co-facilitates Mama&rsquo;s Golden Hour and consults on clinical practice, but she doesn&rsquo;t see individual clients through Golden Hour Wellness.</p><p>Individual sessions are available with <a href=\"shayla.html\">Shayla</a> and <a href=\"chrissie.html\">Chrissie</a>.</p>"),
- ("How long does therapy take?",
-  "<p>It depends on what you&rsquo;re bringing and what you want from it. Some people come for a focused stretch of eight to twelve sessions around a specific issue. Others stay longer.</p><p>We&rsquo;ll check in openly about whether the work is helping, and you&rsquo;re free to pause or stop at any point.</p>"),
- ("What if I&rsquo;m in crisis?",
-  "<p>This website and our contact form are not monitored for emergencies. If you&rsquo;re in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) or <strong>Colorado Crisis Services at 1-844-493-8255</strong>. Both are staffed 24 hours a day. In an emergency, call <strong>911</strong>.</p>"),
- ("Do you work with people outside Colorado?",
-  "<p>No. Our clinicians are licensed in Colorado, and therapy licensure is state-based, so you need to be physically located in Colorado during sessions.</p>"),
- ("How do I get started?",
-  "<p>Book a free consultation on the <a href=\"index.html#book\">scheduler</a>, call or text <a href=\"tel:+13037369822\">(303)&nbsp;736-9822</a>, or <a href=\"contact.html\">send a message</a>. We usually reply within one business day.</p>"),
-]
+# Questions live in content/faq.json so Tina can edit them without
+# anyone touching Python. Order in the file is order on the page.
+QA = [(i["question"], i["answer"])
+      for i in json.load(io.open("content/faq.json", encoding="utf-8"))["items"]]
+
 faq_ld = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
   {"@type":"Question","name":q,
    "acceptedAnswer":{"@type":"Answer","text":a.replace("&rsquo;","'").replace("&nbsp;"," ")}}

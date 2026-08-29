@@ -1,14 +1,24 @@
-# PREVIEW MODE — the site is not public yet.
-# AT LAUNCH: delete the two Disallow lines below and remove the
-# <meta name="robots" content="noindex, nofollow"> tag from every page.
 User-agent: *
-Disallow: /
+Allow: /
 
-# ---- launch configuration (uncomment at go-live) ----
-# User-agent: *
-# Allow: /
-# Disallow: /admin/
-# Disallow: /logo-options.html
-# Disallow: /type-options.html
+# Working files and the CMS — no reason for these in an index.
+Disallow: /admin/
+Disallow: /logo-options.html
+Disallow: /type-options.html
+Disallow: /v1.html
+
+# AI crawlers are welcome. See llms.txt for a plain-language summary of
+# the practice, written so summaries come out accurate.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://www.goldenhourwellnesscolorado.com/sitemap.xml
