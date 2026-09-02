@@ -34,8 +34,13 @@ MARK = '''<svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
         <circle cx="32" cy="32" r="29" fill="none" stroke="#A85832" stroke-width="2.5"/>
       </svg>'''
 
-NAV = [("about.html", "About"), ("services.html", "Services"),
-       ("team.html", "Our Team"), ("index.html#insurance", "Insurance"),
+# Insurance used to be an anchor into the homepage, which meant the nav item
+# scrolled you somewhere rather than taking you to a page — confusing, and it
+# gave the topic no URL of its own. It now lives at the top of the FAQ, which
+# is where people look for cost questions anyway.
+NAV = [("index.html", "Home"), ("about.html", "About"),
+       ("services.html", "Services"), ("team.html", "Our Team"),
+       ("blog.html", "Journal"), ("faq.html", "FAQ"),
        ("contact.html", "Contact")]
 
 RIDGE = '''  <div class="footer__ridge" aria-hidden="true">
@@ -96,8 +101,9 @@ FOOTER = f'''<footer class="footer">
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="team.html">Our Team</a></li>
+        <li><a href="blog.html">Journal</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="index.html#insurance">Insurance</a></li>
+        <li><a href="faq.html#insurance">Insurance &amp; rates</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -143,7 +149,7 @@ PAGE_CSS = '''
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:2.5rem}
 @media (max-width:980px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.cards{grid-template-columns:1fr}}
-/* ── Orphan-row centring ─────────────────────────────────────────────
+/* ── Orphan-row centering ─────────────────────────────────────────────
    With 5 cards in a 3-across grid the last row holds 2 and hangs left.
    Switching to a 6-column track and spanning each card 2 columns lets
    the final pair start at column 2 and 4, which centres them under the
@@ -173,13 +179,22 @@ PAGE_CSS = '''
   .grid-3 > *, .cards > *{grid-column:auto}
 }
 
-/* Photo set inside a prose column. Capped and centred so it never towers over
+/* Photo set inside a prose column. Capped and centered so it never towers over
    the text on a phone; height:auto keeps the width/height attributes from
    being read as a CSS presentational hint and stretching the image. */
 .prose figure{margin:2.25rem auto; max-width:38rem}
 .prose figure img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover;
   border-radius:var(--r-lg); box-shadow:var(--shadow-md)}
 .prose figcaption{margin-top:.7rem; font-size:.78rem; color:var(--ink-soft); text-align:center}
+
+/* Blog cards carry a hero image, so the padding moves inside and the image
+   sits flush to the card edge. aspect-ratio keeps the grid even regardless of
+   what dimensions the author uploads through the CMS. */
+.postcards .card{padding:0; overflow:hidden}
+.postcard img{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover}
+.postcard__body{padding:1.5rem 1.5rem 1.75rem}
+.postcard__meta{margin:0 0 .5rem; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft)}
+.postcard h3{margin-top:0}
 
 .card{background:var(--shell); border:1px solid var(--line); border-radius:var(--r); padding:1.75rem 1.5rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease}
 .card:hover{border-color:rgba(168,88,50,.32); transform:translateY(-2px); box-shadow:var(--shadow-sm)}

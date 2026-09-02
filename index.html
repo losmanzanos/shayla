@@ -104,7 +104,7 @@
 /* ---------- welcome ---------- */
 .welcome__grid{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2.5rem,6vw,5rem); align-items:center}
 /* Same problem in the About section: once the two columns stack, the 4:5
-   portrait went full-bleed and towered over the copy. Cap and centre it. */
+   portrait went full-bleed and towered over the copy. Cap and center it. */
 @media (max-width:880px){
   .welcome__grid{grid-template-columns:1fr}
   /* the stacked view swaps to the 3:2 crop, so widen the cap and retire the
@@ -142,7 +142,7 @@
 @media (max-width:980px){.grid-3{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.grid-3{grid-template-columns:1fr}}
 
-/* ── Orphan-row centring ─────────────────────────────────────────────
+/* ── Orphan-row centering ─────────────────────────────────────────────
    With 5 cards in a 3-across grid the last row holds 2 and hangs left.
    Switching to a 6-column track and spanning each card 2 columns lets
    the final pair start at column 2 and 4, which centres them under the
@@ -369,10 +369,12 @@ details.more p{margin-top:.6rem; font-size:.9rem}
       </span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="team.html">Our Team</a>
-      <a href="index.html#insurance">Insurance</a>
+      <a href="blog.html">Journal</a>
+      <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
       <a class="btn btn-primary" href="index.html#book">Book Now</a>
     </nav>
@@ -712,8 +714,9 @@ details.more p{margin-top:.6rem; font-size:.9rem}
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="team.html">Our Team</a></li>
+        <li><a href="blog.html">Journal</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="index.html#insurance">Insurance</a></li>
+        <li><a href="faq.html#insurance">Insurance &amp; rates</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
